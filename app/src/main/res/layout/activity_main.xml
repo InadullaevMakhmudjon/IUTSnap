@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android" 
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+
+        <variable name="veiwModel"
+                  type="com.example.iutsummer.ui.main.MainaActivityViewModel"/>
+    </data>
+    
+<RelativeLayout
+        android:animateLayoutChanges="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:context=".ui.main.MainActivity">
+
+    <RelativeLayout
+            android:animateLayoutChanges="true"
+            android:id="@+id/logocontainer"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="50dp">
+        <ImageView
+                android:id="@+id/logo_image"
+                android:layout_width="match_parent"
+                android:layout_height="340dp"
+                android:src="@drawable/iut_logo"
+                android:contentDescription="@string/todo"
+                android:layout_alignParentTop="true"/>
+
+        <RelativeLayout
+                android:id="@+id/baseContainer"
+                android:visibility="gone"
+                android:animateLayoutChanges="true"
+                android:layout_below="@+id/logo_image"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content">
+    <TextView
+            android:id="@+id/logo_desc"
+            android:text="Summer School 2019"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"/>
+
+    <LinearLayout
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/container"
+            android:layout_below="@+id/logo_desc"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User ID"
+                android:textColor="@android:color/white"
+        />
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                    android:background="@drawable/ed_bgb"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:textSize="15sp"
+                    android:enabled="false"
+                    android:text="U-"
+                    android:layout_marginRight="5dp"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:layout_marginTop="5dp"
+            />
+
+            <EditText
+                    android:background="@drawable/ed_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="15sp"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:layout_marginTop="5dp"
+            />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/logo_desc"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="IUT email address"
+                android:textColor="@android:color/white"
+        />
+
+        <EditText
+                android:background="@drawable/ed_bgo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:layout_marginTop="5dp"
+        />
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <Button android:layout_below="@+id/container"
+            android:layout_marginTop="50dp"
+            android:textAllCaps="false"
+            android:text="Login now"
+            android:paddingRight="70dp"
+            android:paddingLeft="70dp"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/white"
+            android:background="@drawable/btn_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>
+</layout>
