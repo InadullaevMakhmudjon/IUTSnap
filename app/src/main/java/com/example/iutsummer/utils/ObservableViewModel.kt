@@ -5,7 +5,7 @@ import android.arch.lifecycle.AndroidViewModel
 import android.databinding.Observable
 import android.databinding.PropertyChangeRegistry
 
-open abstract class ObservableViewModel(val context:Application):AndroidViewModel(context),Observable {
+open abstract class ObservableViewModel(context:Application):AndroidViewModel(context),Observable {
 
     //event listeners for onProperty changed events
     private val callbacks = PropertyChangeRegistry()
