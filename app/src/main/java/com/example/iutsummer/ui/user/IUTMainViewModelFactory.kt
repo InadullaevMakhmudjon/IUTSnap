@@ -1,4 +1,13 @@
 package com.example.iutsummer.ui.user
 
-class IUTMainViewModelFactory {
+import android.app.Application
+import android.arch.lifecycle.ViewModel
+import android.arch.lifecycle.ViewModelProvider
+
+class IUTMainViewModelFactory(private val app:Application) : ViewModelProvider.NewInstanceFactory() {
+
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        return IUTMainViewModel(app) as T
+    }
 }
