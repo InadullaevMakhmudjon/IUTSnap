@@ -28,7 +28,6 @@ class MainaActivityViewModel(appContext:Application,bindings: ActivityMainBindin
      */
     @Bindable
     var userEmailtext = MutableLiveData<String>()
-
     //endregion
 
     //region private properties
@@ -42,6 +41,7 @@ class MainaActivityViewModel(appContext:Application,bindings: ActivityMainBindin
      */
     private val repository = MainActivityRepository(applicationContext as App)
 
+    var isWaiting:LiveData<Boolean>
     /**
      * viewBindings to access other view
      */
@@ -115,6 +115,7 @@ class MainaActivityViewModel(appContext:Application,bindings: ActivityMainBindin
      */
     init {
         iutStudents = repository.iutStudent
+        isWaiting = repository.isWaiting
         isIDCorrect=repository.isId
         isEmailCorrect=repository.isEmail
         isSendEmail=repository.isSendEmail

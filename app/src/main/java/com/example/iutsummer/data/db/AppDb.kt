@@ -5,7 +5,7 @@ import android.arch.persistence.room.RoomDatabase
 import com.example.iutsummer.data.db.dao.UserDao
 import com.example.iutsummer.data.db.entity.Student
 
-@Database(entities = [Student::class],version = 3,exportSchema = false)
+@Database(entities = [Student::class],version = 9,exportSchema = false)
 abstract class AppDb : RoomDatabase() {
     abstract val getUserDao:UserDao
 }

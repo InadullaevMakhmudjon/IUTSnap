@@ -1,10 +1,10 @@
 package com.example.iutsummer.ui.main
 
+import android.app.Dialog
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.databinding.DataBindingUtil
-import android.opengl.Visibility
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -17,7 +17,6 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.example.iutsummer.R
 import android.widget.RelativeLayout
-import android.widget.Toast
 import com.example.iutsummer.databinding.ActivityMainBinding
 import com.example.iutsummer.ui.user.IUTMain
 import kotlinx.android.synthetic.main.activity_main.*
@@ -41,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         binding.veiwModel = viewModel
         binding.lifecycleOwner = this
         animation = AnimationUtils.loadAnimation(applicationContext,R.anim.shake)
+
         splashScreenMethod(binding)
         uiObserves(binding,viewModel)
     }
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * SplashScreen method
      */
-    fun splashScreenMethod(binding:ActivityMainBinding){
+    fun splashScreenMethod(binding: ActivityMainBinding){
         handler.postDelayed({
             binding.root.baseContainer.visibility= View.VISIBLE
             binding.root.logo_image.layoutParams.height=
@@ -63,6 +63,7 @@ class MainActivity : AppCompatActivity() {
      * UI observes to trigger
      */
     fun uiObserves(binding: ActivityMainBinding,viewModel:MainaActivityViewModel){
+
         viewModel.isIDCorrect.observe(this, Observer {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 if (it == false) {
@@ -89,21 +90,20 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.iutStudents.observe(this,Observer{
             if(it!=null){
-                Toast.makeText(this,it.Name,Toast.LENGTH_LONG).show()
-                val intent = Intent(this,IUTMain::class.java)
+                val intent = Intent(this, IUTMain::class.java)
                 startActivity(intent)
-                viewModel.dropStudent()
                 this.finish()
             }
         })
 
         viewModel.isSendEmail.observe(this, Observer {
             if(it == true){
-                logocontainer.visibility=View.GONE
+                loading.visibility=View.GONE
                 waiting.visibility=View.VISIBLE
                 val animate = AnimationUtils.loadAnimation(this,R.anim.bounce)
                 waiting.startAnimation(animate)
             }
         })
+
     }
 }

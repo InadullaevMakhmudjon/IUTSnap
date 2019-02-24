@@ -3,7 +3,6 @@ package com.example.iutsummer.ui.main
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.os.Handler
-import android.util.Log
 import com.example.iutsummer.App
 import com.example.iutsummer.data.db.entity.Student
 import com.google.firebase.auth.FirebaseAuth
@@ -27,10 +26,10 @@ class MainActivityRepository(private val application: App) {
     private val isVerified = MutableLiveData<Boolean>()
 
     private val userDao = application.appMode.database.getUserDao
-    private val database: DatabaseReference = FirebaseDatabase.getInstance().reference
+    private val database: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Student")
     private val auth = FirebaseAuth.getInstance()
     var userrr = auth.currentUser
-
+    var isWaiting=MutableLiveData<Boolean>()
     //endregion
 
     //region public properties
@@ -65,6 +64,7 @@ class MainActivityRepository(private val application: App) {
      * 3.if email correct then sends verification link
      */
     fun getUser(id:String?,email:String){
+        isWaiting.value=true
         var userListener: ValueEventListener = object :ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
                 return
@@ -74,24 +74,25 @@ class MainActivityRepository(private val application: App) {
                 var counterID=0
                 var counterEmail=0
                 p0.children.forEach {
-                    val ID = it.child("ID").getValue(String::class.java)
-                    val Name = it.child("Name").getValue(String::class.java)
-                    if(ID!=null && Name!=null) {
-                        if (ID == id) {
-                            val student = Student()
-                            student.ID = ID
-                            student.Name=Name
+                    val st = it.getValue(Student::class.java)
+                    if(st!=null) {
+                        if (id == st.id) {
                             counterID++
-                            val fullEmail = getsFullEmail(student)
-                                if(Objects.equals(email,fullEmail)) {
-                                    sendEmailVerificationMessage(fullEmail,student)
+                                if(Objects.equals(email,st.email)) {
+                                    sendEmailVerificationMessage(st.email,st)
                                     counterEmail++
                                 }
                         }
                     }
                 }
                 isId.value = counterID != 0
-                isEmail.value = counterEmail != 0
+                if(counterEmail!=0) {
+                    isEmail.value = true
+                }else{
+                    isWaiting.value=false
+                    isEmail.value = false
+                }
+
             }
         }
         database.addListenerForSingleValueEvent(userListener)
@@ -99,15 +100,6 @@ class MainActivityRepository(private val application: App) {
 
     //endregion
 
-
-    /**
-     * Generates student's email
-     */
-    fun getsFullEmail(student:Student):String{
-        val studentSurname = student.Name.substring(0,student.Name.lastIndexOf(" "))
-        val extraToGetName = student.Name.substring(student.Name.indexOf(" ")+1)
-        return "${extraToGetName[0].toLowerCase()}.${studentSurname.toLowerCase()}@student.inha.uz"
-    }
 
     /**
      * Clear All students who entered to app
@@ -121,7 +113,7 @@ class MainActivityRepository(private val application: App) {
     /**
      * Sends email verification link to user's email
      */
-    fun sendEmailVerificationMessage(email:String,student:Student){
+    fun sendEmailVerificationMessage(email:String,student:Student?){
         auth.createUserWithEmailAndPassword(email,"1234567").addOnCompleteListener {
             auth.currentUser?.sendEmailVerification()?.addOnCompleteListener {
                 isSendEmail.value=true
@@ -135,11 +127,13 @@ class MainActivityRepository(private val application: App) {
     /**
      * Checks whether email verified and only called by the loop() function to listen
      */
-    fun signInWithEmail(email:String,student:Student){
+    fun signInWithEmail(email:String,student:Student?){
         auth.signInWithEmailAndPassword(email,"1234567").addOnCompleteListener{
             if(userrr!=null) {
                if (userrr!!.isEmailVerified) {
+                   if(student!=null)
                        userDao.insert(student)
+
                        isVerified.value = true
                 }
             }
@@ -150,7 +144,7 @@ class MainActivityRepository(private val application: App) {
     /**
      * To check every 2 seconds whether verified
      */
-    fun loop(email:String,student:Student){
+    fun loop(email:String,student:Student?){
         val handler = Handler()
         val timer = Timer()
         val doAsynchronousTask = object : TimerTask() {
@@ -168,4 +162,8 @@ class MainActivityRepository(private val application: App) {
     //endregion
 
     //endregion
+
+    init {
+        isWaiting.value=false
+    }
 }

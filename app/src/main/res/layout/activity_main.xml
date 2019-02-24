@@ -18,6 +18,16 @@
 
         <com.airbnb.lottie.LottieAnimationView
                 android:layout_width="match_parent"
+                android:id="@+id/loading"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:visibility="@{veiwModel.isWaiting? View.VISIBLE:View.GONE}"
+                app:lottie_rawRes="@raw/waiting"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
                 android:id="@+id/waiting"
                 android:layout_height="340dp"
                 android:layout_centerInParent="true"
@@ -30,7 +40,7 @@
                 android:animateLayoutChanges="true"
                 android:id="@+id/logocontainer"
                 android:layout_marginLeft="40dp"
-                android:visibility="visible"
+                android:visibility="@{veiwModel.isWaiting? View.GONE:View.VISIBLE}"
                 android:layout_marginRight="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
