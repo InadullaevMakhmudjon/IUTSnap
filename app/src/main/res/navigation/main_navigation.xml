@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/main_navigation">
+<navigation
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_navigation"
+        app:startDestination="@id/newsPage">
 
+    <fragment android:id="@+id/newsPage" android:name="com.example.iutsummer.NewsPage"
+              android:label="fragment_news_page" tools:layout="@layout/fragment_news_page"/>
+    <fragment android:id="@+id/requestForm" android:name="com.example.iutsummer.RequestForm"
+              android:label="fragment_request_form" tools:layout="@layout/fragment_request_form"/>
+    <fragment android:id="@+id/youthUnionForm" android:name="com.example.iutsummer.YouthUnionForm"
+              android:label="fragment_youth_union_form" tools:layout="@layout/fragment_youth_union_form"/>
 </navigation>

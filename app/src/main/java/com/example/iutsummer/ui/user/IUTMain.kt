@@ -1,5 +1,8 @@
 package com.example.iutsummer.ui.user
 
+import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
+import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
@@ -9,20 +12,19 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.iutsummer.R
+import com.example.iutsummer.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_iutmain.*
 import kotlinx.android.synthetic.main.app_bar_iutmain.*
 
 class IUTMain : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    lateinit var viewModel: IUTMainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_iutmain)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+        viewModel = ViewModelProviders.of(this,IUTMainViewModelFactory(application)).get(IUTMainViewModel::class.java)
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -68,11 +70,11 @@ class IUTMain : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
             R.id.nav_manage -> {
 
             }
-            R.id.nav_share -> {
-
-            }
             R.id.nav_logout -> {
-
+                viewModel.LogOut()
+                val login = Intent(this,MainActivity::class.java)
+                startActivity(login)
+                finish()
             }
         }
 

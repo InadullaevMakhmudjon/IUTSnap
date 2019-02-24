@@ -157,7 +157,7 @@ class MainActivityRepository(private val application: App) {
                 }
             }
         }
-        timer.schedule(doAsynchronousTask, 0, 2000)
+        timer.schedule(doAsynchronousTask, 0, 1000)
     }
     //endregion
 

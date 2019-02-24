@@ -35,7 +35,10 @@ class MainActivity : AppCompatActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
+        //Initializing Layout Bindings
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+
+        //Initializing ViewModel
         val viewModel = ViewModelProviders.of(this,MainViewModelFactory(application,binding)).get(MainaActivityViewModel::class.java)
         binding.veiwModel = viewModel
         binding.lifecycleOwner = this
