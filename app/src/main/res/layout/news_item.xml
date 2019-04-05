@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="8dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/imageholder"
+        android:layout_width="160dp"
+        android:layout_height="120dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"
+        >
+        <ImageView
+            android:id="@+id/imageplace"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:layout_height="100dp"
+            android:background="#000" />
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20"
+        android:id="@+id/dateText"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:background="#475FA8"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:id="@+id/monthText"
+        android:text="FEBRUARY"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:background="#6982CC"/>
+</LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/titletext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_toEndOf="@+id/imageholder"
+        android:text="Hello worldsd dsf dsf sdfsf dsfdsf sdffgdfg"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/bodytext"
+        android:layout_below="@+id/titletext"
+        android:layout_toEndOf="@+id/imageholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="11sp"
+        android:maxLines="6"
+        android:ellipsize="end"
+        android:text="sdfdsf sdfdfs dsfsdf hjghjg hg jg jkgj  g jg gkg j g gg j gjgjhg kjgkjg kjgkjg kj gkjgkj gj g j gg g jg jg jhg jkg jh gjgjhg jg jgjh ghj ghj gj gj g g jg jg jkg hj gj gj gjgj gj gjkg kjg j gjgjg jh gjg j j gj gj gj gj gj j j gjg jg jg j jgdsfdsf dsf dsfdsf dsf fdsfds sdfds sdfdsf sdfsdf sdfsdf sdfdsf sdfdsf sdfsdfsdf sdfsdf sdf"
+        />
+</RelativeLayout>

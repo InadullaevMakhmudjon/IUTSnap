@@ -5,28 +5,26 @@
 
     <group android:checkableBehavior="single">
         <item
-                android:id="@+id/nav_camera"
-                android:icon="@drawable/ic_menu_camera"
-                android:title="Import"/>
+                android:id="@+id/nav_request"
+                android:icon="@drawable/ic_requestform"
+                android:title="Request form"/>
         <item
-                android:id="@+id/nav_gallery"
-                android:icon="@drawable/ic_menu_gallery"
-                android:title="Gallery"/>
+                android:id="@+id/nav_youth"
+                android:icon="@drawable/ic_requestform"
+                android:title="Youth union"/>
+
         <item
-                android:id="@+id/nav_slideshow"
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="Slideshow"/>
-        <item
-                android:id="@+id/nav_manage"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="Tools"/>
+                android:id="@+id/nav_lostfound"
+                android:icon="@drawable/ic_date_range_black_24dp"
+                android:title="Found item"/>
+
     </group>
 
     <item android:title="Communicate">
         <menu>
             <item
                     android:id="@+id/nav_about"
-                    android:icon="@drawable/ic_iutstudent"
+                    android:icon="@drawable/ic_person_black_24dp"
                     android:title="About student"/>
             <item
                     android:id="@+id/nav_logout"

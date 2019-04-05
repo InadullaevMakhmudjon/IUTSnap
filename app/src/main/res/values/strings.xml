@@ -1,16 +1,20 @@
 <resources>
-    <string name="app_name">IUTSummer</string>
+    <string name="app_name">IUTSnap</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="todo">TODO</string>
-    <string name="title_content">Summer School 2019</string>
+    <string name="title_content">IUTSnap</string>
     <string name="IUT">U-</string>
-    <string name="title_activity_iutmain">IUTMain</string>
+    <string name="title_activity_iutmain">IUTSnap</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="officeialRequestSubtitle">Dear students If you need an Approvement or Enrollment Certificate (
+        Справка), please fill out the blanks by indicating individual information about yourself . Once you submitted
+        the request form, you can get your certificate after single working day.
+    </string>
 </resources>

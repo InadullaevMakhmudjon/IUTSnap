@@ -5,10 +5,28 @@
         xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_navigation"
         app:startDestination="@id/newsPage">
 
-    <fragment android:id="@+id/newsPage" android:name="com.example.iutsummer.NewsPage"
-              android:label="fragment_news_page" tools:layout="@layout/fragment_news_page"/>
-    <fragment android:id="@+id/requestForm" android:name="com.example.iutsummer.RequestForm"
-              android:label="fragment_request_form" tools:layout="@layout/fragment_request_form"/>
+    <fragment android:id="@+id/newsPage" android:name="com.example.iutsummer.ui.user.news.NewsFragment"
+              android:label="fragment_news_page" tools:layout="@layout/fragment_news_page">
+        <action android:id="@+id/action_newsPage_to_youthUnionForm" app:destination="@id/youthUnionForm"/>
+        <action android:id="@+id/action_newsPage_to_requestForm" app:destination="@id/requestForm"
+                app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+    <fragment android:id="@+id/requestForm" android:name="com.example.iutsummer.ui.user.requestform.RequestForm"
+              android:label="fragment_request_form" tools:layout="@layout/fragment_request_form">
+        <action android:id="@+id/action_requestForm_to_newsPage" app:destination="@id/newsPage"
+                app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action android:id="@+id/action_requestForm_to_youthUnionForm" app:destination="@id/youthUnionForm"/>
+    </fragment>
     <fragment android:id="@+id/youthUnionForm" android:name="com.example.iutsummer.YouthUnionForm"
-              android:label="fragment_youth_union_form" tools:layout="@layout/fragment_youth_union_form"/>
+              android:label="fragment_youth_union_form" tools:layout="@layout/fragment_youth_union_form">
+        <action android:id="@+id/action_youthUnionForm_to_newsPage" app:destination="@id/newsPage"/>
+        <action android:id="@+id/action_youthUnionForm_to_requestForm" app:destination="@id/requestForm"/>
+    </fragment>
+    <fragment android:id="@+id/aboutStudent" android:name="com.example.iutsummer.ui.user.aboutstudent.AboutStudent"
+              android:label="fragment_about_student" tools:layout="@layout/fragment_about_student"/>
+    <fragment android:id="@+id/lostFoundFragment"
+              android:name="com.example.iutsummer.ui.user.lostfound.LostFoundFragment"
+              android:label="LostFoundFragment"/>
 </navigation>

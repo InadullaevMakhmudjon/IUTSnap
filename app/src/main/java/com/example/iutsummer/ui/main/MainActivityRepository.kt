@@ -3,6 +3,7 @@ package com.example.iutsummer.ui.main
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.os.Handler
+import android.util.Log
 import com.example.iutsummer.App
 import com.example.iutsummer.data.db.entity.Student
 import com.google.firebase.auth.FirebaseAuth
@@ -76,11 +77,14 @@ class MainActivityRepository(private val application: App) {
                 p0.children.forEach {
                     val st = it.getValue(Student::class.java)
                     if(st!=null) {
-                        if (id == st.id) {
+                        Log.d("MakhmudjonSUmmer",st.name)
+                        if (Objects.equals(id,st.id)) {
                             counterID++
-                                if(Objects.equals(email,st.email)) {
+                            Log.d("MakhmudjonSUmmer","Id equal ${st.id}")
+                            if(Objects.equals(email,st.email)) {
                                     sendEmailVerificationMessage(st.email,st)
-                                    counterEmail++
+                                Log.d("MakhmudjonSUmmer","Email equal ${st.id}")
+                                counterEmail++
                                 }
                         }
                     }

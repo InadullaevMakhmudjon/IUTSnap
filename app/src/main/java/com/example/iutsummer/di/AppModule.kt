@@ -10,7 +10,8 @@ class AppModule(private val application:App){
     var app:App = application
 
     //Room database
-    var database:AppDb = Room.databaseBuilder(app,AppDb::class.java,"IUTDb").fallbackToDestructiveMigration().allowMainThreadQueries().build()
+    var database:AppDb = Room.databaseBuilder(app,AppDb::class.java,"IUTDb")
+            .fallbackToDestructiveMigration().allowMainThreadQueries().build()
 
 
 

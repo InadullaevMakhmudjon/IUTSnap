@@ -1,14 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".RequestForm">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.user.requestform.RequestForm">
+    <data>
+        <import type="android.view.View"/>
+        <variable name="rviewModel"
+                  type="com.example.iutsummer.ui.user.requestform.RequestViewModel"/>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+            android:layout_height="match_parent">
 
-</FrameLayout>
+        <!-- region Header -->
+        <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:background="@android:color/white"
+                android:layout_height="wrap_content">
+
+            <android.support.design.widget.CoordinatorLayout
+                    android:layout_width="match_parent"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    android:layout_height="wrap_content">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                <ImageView android:layout_width="wrap_content"
+                           android:src="@drawable/backgroundmain"
+                           android:id="@+id/actionbar"
+                           android:layout_marginTop="-115dp"
+                           android:layout_height="wrap_content"/>
+
+                <TextView android:id="@+id/titleRequest"
+                          android:layout_width="wrap_content"
+                          android:text="Official Request form"
+                          android:layout_centerHorizontal="true"
+                          android:layout_marginTop="25dp"
+                          android:textSize="25sp"
+                          android:textColor="@android:color/white"
+                          android:layout_height="wrap_content"/>
+
+                <ImageView android:layout_width="120dp"
+                           android:layout_height="120dp"
+                           android:layout_marginTop="30dp"
+                           android:layout_below="@+id/titleRequest"
+                           android:src="@drawable/iutlogopng"
+                           android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+            </android.support.design.widget.CoordinatorLayout>
+
+        </android.support.design.widget.AppBarLayout>
+        <!--endregion  -->
+
+        <!--  region  Body -->
+        <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_marginTop="-60dp"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_alignParentBottom="true">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_marginBottom="50dp"
+                      android:orientation="vertical"
+                      android:gravity="center"
+                      android:layout_height="wrap_content">
+
+            <!-- ID -->
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_height="wrap_content">
+                <android.support.design.widget.TextInputEditText
+                        android:layout_width="350dp"
+                        android:hint="ID"
+                        android:layout_height="50dp"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- Full name -->
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_height="wrap_content">
+                <android.support.design.widget.TextInputEditText
+                        android:layout_width="350dp"
+                        android:hint="Full name"
+                        android:layout_height="50dp"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- Passport number -->
+            <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_height="wrap_content">
+                <android.support.design.widget.TextInputEditText
+                        android:layout_width="350dp"
+                        android:hint="Full passport number"
+                        android:layout_height="50dp"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- Department -->
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="20dp"
+                      android:layout_marginBottom="10dp"
+                      android:text="Department "/>
+            <RadioGroup android:layout_width="350dp"
+                        android:layout_height="wrap_content">
+
+                <RadioButton android:layout_width="match_parent"
+                             android:text="Logistika -SOL"
+                             android:id="@+id/btn1"
+                             android:layout_height="wrap_content"/>
+
+                <RadioButton android:layout_width="match_parent"
+                             android:id="@+id/btn2"
+                             android:text="Komputer va dasturiy injiniring-SOCIE"
+                             android:layout_height="wrap_content"/>
+            </RadioGroup>
+
+            <!-- How many copies -->
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="20dp"
+                      android:layout_marginBottom="10dp"
+                      android:text="How many copies you need"/>
+            <RadioGroup android:layout_width="350dp"
+                        android:layout_height="wrap_content">
+                <RadioButton android:layout_width="match_parent"
+                             android:text="1"
+                             android:layout_height="wrap_content"/>
+
+                <RadioButton android:layout_width="match_parent"
+                             android:text="2"
+                             android:layout_height="wrap_content"/>
+            </RadioGroup>
+
+            <!-- Year of study -->
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="20dp"
+                      android:layout_marginBottom="10dp"
+                      android:text="Year of study"/>
+            <RadioGroup android:layout_width="350dp"
+                        android:layout_height="wrap_content">
+                <RadioButton android:layout_width="match_parent"
+                             android:text="1"
+                             android:layout_height="wrap_content"/>
+
+                <RadioButton android:layout_width="match_parent"
+                             android:text="2"
+                             android:layout_height="wrap_content"/>
+
+                <RadioButton android:layout_width="match_parent"
+                             android:text="3"
+                             android:layout_height="wrap_content"/>
+
+                <RadioButton android:layout_width="match_parent"
+                             android:text="4"
+                             android:layout_height="wrap_content"/>
+            </RadioGroup>
+
+            <!-- Type of official letter -->
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="20dp"
+                      android:layout_marginBottom="10dp"
+                      android:text="Type of official letter"/>
+            <RadioGroup android:layout_width="350dp"
+                        android:layout_height="wrap_content">
+                <RadioButton android:layout_width="match_parent"
+                             android:text="Enrollment Approvement for Freshmen"
+                             android:layout_height="wrap_content"/>
+
+                <RadioButton android:layout_width="match_parent"
+                             android:text="Study approvement"
+                             android:layout_height="wrap_content"/>
+
+                <RadioButton android:layout_width="match_parent"
+                             android:text="Transcript"
+                             android:layout_height="wrap_content"/>
+
+                <RadioButton android:layout_width="match_parent"
+                             android:text="other"
+                             android:layout_height="wrap_content"/>
+            </RadioGroup>
+
+            <!-- Submit button -->
+            <Button android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Submit"
+                    android:layout_marginTop="20dp"
+                    android:paddingRight="80dp"
+                    android:paddingLeft="80dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:textSize="18sp"
+                    android:onClick="@{(v)->rviewModel.sendBtn(v)}"
+                    android:background="@color/colorAccent"
+                    android:textColor="@android:color/white"
+            />
+
+        </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <!-- endregion  -->
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

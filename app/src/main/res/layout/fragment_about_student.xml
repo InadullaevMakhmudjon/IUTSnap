@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.user.aboutstudent.AboutStudent">
+    <data>
+        <variable name="viewmodel" type="com.example.iutsummer.ui.user.aboutstudent.AboutStudentViewModel"/>
+    </data>
+
+<RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <ImageView android:layout_width="match_parent"
+               android:src="@drawable/backgroundmain"
+               android:layout_marginTop="-75dp"
+               android:scaleType="fitXY"
+               android:layout_height="380dp"/>
+
+    <ImageView android:layout_width="match_parent"
+               android:src="@drawable/backgroundmain"
+               android:layout_alignParentBottom="true"
+               android:id="@+id/actionbar"
+               android:rotation="180"
+               android:layout_marginTop="-75dp"
+               android:scaleType="fitXY"
+               android:layout_height="360dp"/>
+
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="180dp"
+               android:layout_marginTop="20dp"
+               android:src="@drawable/ic_iutstudent"/>
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_centerHorizontal="true"
+                  android:layout_alignParentBottom="true"
+                  android:layout_marginBottom="60dp"
+                  android:orientation="vertical"
+                  android:gravity="center"
+                  android:layout_height="wrap_content">
+
+        <!-- Student ID -->
+        <LinearLayout android:layout_width="wrap_content"
+                      android:orientation="horizontal"
+                      android:layout_margin="5dp"
+                      android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Student ID: "
+                  android:textColor="@android:color/white"
+                  android:textSize="20sp"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="@{viewmodel.studentID}"
+                      android:textStyle="bold"
+                      android:layout_marginLeft="10dp"
+                      android:textColor="@android:color/white"
+                      android:textSize="20sp"/>
+        </LinearLayout>
+
+        <!-- Student Name -->
+        <LinearLayout android:layout_width="wrap_content"
+                  android:orientation="horizontal"
+                      android:layout_margin="5dp"
+                  android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Name: "
+                  android:textColor="@android:color/white"
+                  android:textSize="20sp"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@{viewmodel.studentName}"
+                  android:textStyle="bold"
+                  android:layout_marginLeft="10dp"
+                  android:textColor="@android:color/white"
+                  android:textSize="20sp"/>
+
+    </LinearLayout>
+
+        <!-- Year -->
+        <LinearLayout android:layout_width="wrap_content"
+                  android:orientation="horizontal"
+                      android:layout_margin="5dp"
+                  android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Year: "
+                  android:textColor="@android:color/white"
+                  android:textSize="20sp"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@{viewmodel.studentYear}"
+                  android:layout_marginLeft="10dp"
+                  android:textColor="@android:color/white"
+                  android:textSize="20sp"/>
+        </LinearLayout>
+
+        <!-- Department -->
+        <LinearLayout android:layout_width="wrap_content"
+                  android:orientation="horizontal"
+                      android:layout_margin="5dp"
+                  android:layout_height="wrap_content">
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Department: "
+                  android:textColor="@android:color/white"
+                  android:textSize="20sp"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@{viewmodel.studentDepartment}"
+                  android:layout_marginLeft="10dp"
+                  android:textStyle="bold"
+                  android:textColor="@android:color/white"
+                  android:textSize="20sp"/>
+
+    </LinearLayout>
+
+        <!-- Year Alias -->
+        <LinearLayout android:layout_width="wrap_content"
+                  android:orientation="horizontal"
+                      android:layout_margin="5dp"
+                  android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="YearAlias: "
+                  android:textColor="@android:color/white"
+                  android:textSize="20sp"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@{viewmodel.studentYearAlias}"
+                  android:textStyle="bold"
+                  android:textColor="@android:color/white"
+                  android:textSize="20sp"/>
+
+    </LinearLayout>
+
+        <!-- Email -->
+        <LinearLayout android:layout_width="wrap_content"
+                  android:orientation="horizontal"
+                      android:layout_margin="5dp"
+                  android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Email: "
+                  android:textColor="@android:color/white"
+                  android:textSize="20sp"/>
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@{viewmodel.studentEmail}"
+                  android:textStyle="bold"
+                  android:textColor="@android:color/white"
+                  android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
+</layout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="200dp"
+        android:orientation="horizontal"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="#fff"
+        android:layout_height="280dp">
+
+
+    <android.support.design.card.MaterialCardView
+            android:layout_width="160dp"
+            android:layout_margin="10dp"
+            android:layout_centerInParent="true"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:strokeColor="#646464"
+            app:cardElevation="10dp"
+            app:strokeWidth="1dp"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+            <!-- Image Container -->
+            <RelativeLayout
+                    android:layout_width="160dp"
+                    android:id="@+id/imageContainer"
+                    android:layout_height="120dp">
+
+                <ImageView android:layout_width="match_parent"
+                           android:background="#000"
+                           android:id="@+id/image"
+                           android:layout_marginTop="10dp"
+                           android:layout_marginBottom="10dp"
+                           android:layout_marginLeft="8dp"
+                           android:layout_marginRight="8dp"
+                           android:layout_height="match_parent"/>
+
+                <View android:layout_width="match_parent"
+                      android:layout_height="1dp"
+                      android:layout_alignParentBottom="true"
+                      android:background="#646464"/>
+            </RelativeLayout>
+
+            <!-- Body container -->
+            <RelativeLayout android:layout_width="match_parent"
+                            android:padding="8dp"
+                            android:layout_below="@+id/imageContainer"
+                            android:layout_height="120dp">
+
+                <TextView android:layout_width="wrap_content"
+                          android:text="Makhmudjon"
+                          android:id="@+id/category"
+                          android:layout_height="wrap_content"/>
+
+                <TextView android:layout_width="match_parent"
+                          android:layout_below="@+id/category"
+                          android:lines="2"
+                          android:id="@+id/description"
+                          android:ellipsize="end"
+                          android:layout_marginTop="5dp"
+                          android:textSize="8sp"
+                          android:text="sadhjasbjbsdjasndkjasdnakjsdnaskjdlkdsjfnfffbfhbfjhbfbjdsjfk dsf sdf dfs  dsf ds fds f  dsfbjabfjadbsf"
+                          android:layout_height="wrap_content"/>
+
+                <Button android:layout_width="60dp"
+                        android:text="In details"
+                        android:textAllCaps="false"
+                        android:id="@+id/details"
+                        android:textSize="8dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="5dp"
+                        android:textColor="@android:color/white"
+                        android:backgroundTint="@color/design_default_color_primary"
+                        android:layout_height="30dp"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:id="@+id/date"
+                          android:text="31/mar/2019"
+                          android:textSize="8sp"
+                          android:layout_alignParentBottom="true"
+                          android:layout_alignParentLeft="true"
+                          android:layout_marginBottom="20dp"
+                          android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </android.support.design.card.MaterialCardView>
+
+</RelativeLayout>

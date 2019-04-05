@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable name="viewModelFragment" type="com.example.iutsummer.ui.user.lostfound.dialog.DialogLFViewModel"/>
+    </data>
+
+<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="10dp"
+                android:layout_margin="16dp"
+                android:layout_centerInParent="true"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="16dp">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="vertical"
+                          android:layout_height="wrap_content">
+
+                <TextView android:layout_width="match_parent"
+                          android:textAlignment="center"
+                          android:text="What have you found"
+                          android:layout_margin="10dp"
+                          android:textSize="15sp"
+                          android:layout_height="wrap_content"/>
+
+                <ImageView android:layout_width="match_parent"
+                           android:background="#E4E2E2"
+                           android:src="@drawable/camera"
+                           android:onClick="@{(v)->viewModelFragment.capture(v)}"
+                           android:scaleType="fitCenter"
+                           android:padding="40dp"
+                           android:id="@+id/captured"
+                           android:layout_height="150dp"/>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:orientation="horizontal"
+                              android:gravity="center"
+                              android:padding="5dp"
+                              android:layout_height="30dp">
+
+                    <ImageView android:layout_width="30dp"
+                               android:src="@drawable/ic_camera_alt_black_24dp"
+                               android:layout_height="match_parent"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:text="Edit picture"
+                              android:textColor="@android:color/black"
+                              android:layout_marginLeft="5dp"
+                              android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <android.support.design.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        app:cardElevation="0.5dp"
+                        android:layout_marginTop="15dp"
+                        android:onClick="@{(v)->viewModelFragment.dataPick(v)}"
+                        app:strokeColor="@color/colorPrimary"
+                        android:layout_height="wrap_content">
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:orientation="horizontal"
+                                  android:layout_height="30dp">
+
+                        <ImageView android:layout_width="25dp"
+                                   android:src="@drawable/ic_date_range_black_24dp"
+                                   android:layout_marginLeft="8dp"
+                                   android:layout_height="match_parent"/>
+
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
+                                  android:layout_marginLeft="10dp"
+                                  android:textSize="15sp"
+                                  android:textColor="@android:color/black"
+                                  android:text="@{viewModelFragment.dataText}"/>
+
+                    </LinearLayout>
+                </android.support.design.card.MaterialCardView>
+
+                <android.support.design.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="5dp"
+                        app:cardElevation="0.5dp"
+                        android:onClick="@{(v)->viewModelFragment.dataClick(v)}"
+                        app:strokeColor="@color/colorPrimary"
+                        android:layout_height="wrap_content">
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:orientation="horizontal"
+                                  android:layout_height="30dp">
+
+                        <ImageView android:layout_width="25dp"
+                                   android:src="@drawable/ic_script"
+                                   android:layout_marginLeft="8dp"
+                                   android:layout_height="match_parent"/>
+
+                        <TextView android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
+                                  android:layout_marginLeft="10dp"
+                                  android:textSize="15sp"
+                                  android:textColor="@android:color/black"
+                                  android:text="@{viewModelFragment.category}"/>
+
+                    </LinearLayout>
+                </android.support.design.card.MaterialCardView>
+
+
+                <EditText android:layout_width="match_parent"
+                          android:padding="10dp"
+                          android:hint="Description"
+                          android:layout_marginLeft="10dp"
+                          android:layout_marginRight="10dp"
+                          android:layout_marginBottom="10dp"
+                          android:layout_marginTop="20dp"
+                          android:text="@={viewModelFragment.desctiption}"
+                          android:background="@android:color/white"
+                          android:layout_height="match_parent"/>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:weightSum="2"
+                              android:orientation="horizontal"
+                              android:layout_height="wrap_content">
+
+                    <Button
+                            android:id="@+id/cancel_action"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/button_ellipse1"
+                            android:text="Cancel"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:layout_weight="1"/>
+
+                    <Button
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="10dp"
+                            android:padding="10dp"
+                            android:textColor="@android:color/white"
+                            android:text="Post"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:onClick="@{(v)->viewModelFragment.submit(v)}"
+                            android:background="@drawable/button_ellipse"
+                            android:layout_weight="1">
+                    </Button>
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.design.card.MaterialCardView>
+
+
+</RelativeLayout>
+
+</layout>
