@@ -21,10 +21,14 @@ class IUTMainRepository(private val app:App) {
         val email = student.value?.email
         if(email!=null) {
             val credential = EmailAuthProvider.getCredential(email, "1234567")
-            userrr!!.reauthenticate(credential).addOnCompleteListener {
-                userrr!!.delete().addOnCompleteListener {
-                    database.drop()
+            try {
+                userrr!!.reauthenticate(credential).addOnCompleteListener {
+                    userrr!!.delete().addOnCompleteListener {
+                        database.drop()
+                    }
                 }
+            }catch (e:Exception){
+
             }
         }
     }

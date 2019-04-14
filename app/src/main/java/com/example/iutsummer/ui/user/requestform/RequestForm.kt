@@ -36,7 +36,7 @@ class RequestForm : Fragment() {
         })
 
         binding.rviewModel = viewModel
-
+        binding.lifecycleOwner = this
 
     }
 }

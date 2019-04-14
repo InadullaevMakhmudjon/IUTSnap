@@ -77,9 +77,11 @@
                     android:layout_width="wrap_content"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_height="wrap_content">
+
                 <android.support.design.widget.TextInputEditText
                         android:layout_width="350dp"
                         android:hint="ID"
+                        android:text="@={rviewModel.id}"
                         android:layout_height="50dp"/>
             </android.support.design.widget.TextInputLayout>
 
@@ -91,6 +93,7 @@
                 <android.support.design.widget.TextInputEditText
                         android:layout_width="350dp"
                         android:hint="Full name"
+                        android:text="@={rviewModel.name}"
                         android:layout_height="50dp"/>
             </android.support.design.widget.TextInputLayout>
 
@@ -102,6 +105,7 @@
                 <android.support.design.widget.TextInputEditText
                         android:layout_width="350dp"
                         android:hint="Full passport number"
+                        android:text="@={rviewModel.passport}"
                         android:layout_height="50dp"/>
             </android.support.design.widget.TextInputLayout>
 
@@ -112,6 +116,7 @@
                       android:layout_marginBottom="10dp"
                       android:text="Department "/>
             <RadioGroup android:layout_width="350dp"
+                        android:id="@+id/department"
                         android:layout_height="wrap_content">
 
                 <RadioButton android:layout_width="match_parent"
@@ -132,6 +137,7 @@
                       android:layout_marginBottom="10dp"
                       android:text="How many copies you need"/>
             <RadioGroup android:layout_width="350dp"
+                        android:id="@+id/copies"
                         android:layout_height="wrap_content">
                 <RadioButton android:layout_width="match_parent"
                              android:text="1"
@@ -149,6 +155,7 @@
                       android:layout_marginBottom="10dp"
                       android:text="Year of study"/>
             <RadioGroup android:layout_width="350dp"
+                        android:id="@+id/yearStudy"
                         android:layout_height="wrap_content">
                 <RadioButton android:layout_width="match_parent"
                              android:text="1"
@@ -174,6 +181,7 @@
                       android:layout_marginBottom="10dp"
                       android:text="Type of official letter"/>
             <RadioGroup android:layout_width="350dp"
+                        android:id="@+id/typeOfStudy"
                         android:layout_height="wrap_content">
                 <RadioButton android:layout_width="match_parent"
                              android:text="Enrollment Approvement for Freshmen"
